@@ -15,7 +15,6 @@ void main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
-
   await serviceLocatorInitialization();
   AppLogger.loggingError();
   Bloc.observer = AppBlocObserver();
@@ -44,7 +43,6 @@ class _MyAppState extends State<MyApp> with WidgetsBindingObserver {
     super.dispose();
   }
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     initializeDateFormatting("ru_RU");
