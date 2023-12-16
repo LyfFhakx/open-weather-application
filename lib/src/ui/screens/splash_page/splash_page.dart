@@ -3,7 +3,6 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:open_weather_application/src/common/theme/font_theme.dart';
-import 'package:open_weather_application/src/ui/screens/weather_page/weather_page.dart';
 
 import '../auth_page/auth_page.dart';
 

@@ -3,7 +3,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:open_weather_application/src/data/models/models.dart';
 
 import '../../../../domain.dart';
-import '../../../../utils/logs/log.dart';
 
 part 'weather_event.dart';
 part 'weather_state.dart';

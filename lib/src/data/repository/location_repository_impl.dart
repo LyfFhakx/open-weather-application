@@ -1,7 +1,6 @@
 import 'package:either_dart/either.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:open_weather_application/src/domain.dart';
-import 'package:open_weather_application/src/domain/failure/failure.dart';
 
 typedef PositionResponse = Either<Failure, Position>;
 

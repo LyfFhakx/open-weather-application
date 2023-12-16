@@ -3,7 +3,6 @@ import 'package:either_dart/either.dart';
 import '../../core/error/exceptions.dart';
 import '../../data.dart';
 import '../../domain.dart';
-import '../../domain/failure/failure.dart';
 import '../modules/services/cached_weather_service_impl.dart';
 
 class WeatherRepositoryImpl extends WeatherRepository {
