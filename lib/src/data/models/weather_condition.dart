@@ -1,9 +1,9 @@
 
 class WeatherCondition {
-  final int id;
-  final String main;
-  final String description;
-  final String icon;
+  final int? id;
+  final String? main;
+  final String? description;
+  final String? icon;
 
   WeatherCondition({
     required this.id,

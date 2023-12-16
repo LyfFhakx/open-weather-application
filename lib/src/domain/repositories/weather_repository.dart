@@ -3,5 +3,5 @@ import '../../data.dart';
 import '../failure/failure.dart';
 
 abstract class WeatherRepository {
-  Future<Either<Failure, WeatherResponse>> getWeather(double lat,double lon);
+  Future<Either<Failure, WeatherResponse>> getWeather(double lat, double lon);
 }

@@ -3,7 +3,8 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:open_weather_application/src/common/theme/font_theme.dart';
-import 'package:open_weather_application/src/ui/screens/weather_page/weather_page.dart';
+
+import '../auth_page/auth_page.dart';
 
 class SplashPage extends StatefulWidget {
   const SplashPage({super.key});
@@ -18,7 +19,7 @@ class _SplashPageState extends State<SplashPage> {
     super.initState();
     Timer(const Duration(seconds: 2), () {
       Navigator.pushReplacement(context,
-          MaterialPageRoute(builder: (context) => const WeatherPage()));
+          MaterialPageRoute(builder: (context) => const AuthPage()));
     }
     );
   }

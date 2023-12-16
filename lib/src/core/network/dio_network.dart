@@ -1,29 +1,19 @@
 import 'package:dio/dio.dart';
+import 'package:open_weather_application/src/core/network/dio_log_interceptor.dart';
 import '../../data.dart';
-import '../../utils/logs/app_logger.dart';
-import 'logger_interceptor.dart';
+
+import 'dio_log_settings.dart';
 
 class DioNetwork {
   static late Dio appAPI;
 
   static void initDio(){
     appAPI = Dio(baseOptions(endpoint));
-    appAPI.interceptors.add(loggerInterceptor());
+    appAPI.interceptors.add(DioLogInterceptor(const DioLogSettings()));
     appAPI.interceptors.add(interceptorsWrapper());
 
   }
 
-  static LoggerInterceptor loggerInterceptor() {
-    return LoggerInterceptor(
-      logger,
-      request: true,
-      requestBody: true,
-      error: true,
-      responseBody: true,
-      responseHeader: false,
-      requestHeader: true,
-    );
-  }
 
   ///__________App__________///
   /// App interceptor

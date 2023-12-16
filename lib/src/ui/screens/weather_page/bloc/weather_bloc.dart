@@ -5,7 +5,6 @@ import 'package:open_weather_application/src/data/models/models.dart';
 import '../../../../domain.dart';
 
 part 'weather_event.dart';
-
 part 'weather_state.dart';
 
 class WeatherBloc extends Bloc<WeatherEvent, WeatherState> {

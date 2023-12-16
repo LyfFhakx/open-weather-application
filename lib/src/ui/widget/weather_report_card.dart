@@ -19,7 +19,7 @@ class WeatherReportCard extends StatefulWidget {
 }
 
 class _WeatherReportCardState extends State<WeatherReportCard> {
-  int _currentId = 0;
+  int _currentId = 1;
 
   @override
   Widget build(BuildContext context) {
@@ -46,15 +46,15 @@ class _WeatherReportCardState extends State<WeatherReportCard> {
                         children: [
                           Text(
                             "Сегодня",
-                            style:
-                                FontTheme.b1Medium.style(color: AppColors.white),
+                            style: FontTheme.b1Medium
+                                .style(color: AppColors.white),
                           ),
                           Text(
                             DateFormat.d("ru_RU")
                                 .add_LLLL()
-                                .format(widget.weatherReport.first.dtTxt),
-                            style:
-                                FontTheme.b1Medium.style(color: AppColors.white),
+                                .format(widget.weatherReport.first.dtTxt!),
+                            style: FontTheme.b1Medium
+                                .style(color: AppColors.white),
                           ),
                         ],
                       ),
@@ -78,10 +78,11 @@ class _WeatherReportCardState extends State<WeatherReportCard> {
                           children: [
                             for (int i = 0; i < 4; i++)
                               GestureDetector(
-                                onTap: ()=>setState(() {
+                                onTap: () => setState(() {
                                   _currentId = i;
                                 }),
                                 child: HourlyWeatherContainer(
+                                    isTapped: _currentId == i,
                                     weather: widget.weatherReport[i]),
                               )
                           ],
@@ -102,7 +103,10 @@ class _WeatherReportCardState extends State<WeatherReportCard> {
         ),
         SizedBox(
             height: 96,
-            child: WeatherReportDetailsContainer(wind: widget.weatherReport[_currentId].wind,humidity: widget.weatherReport[_currentId].main.humidity,)),
+            child: WeatherReportDetailsContainer(
+              wind: widget.weatherReport[_currentId].wind,
+              humidity: widget.weatherReport[_currentId].main?.humidity??0,
+            )),
       ],
     );
   }
