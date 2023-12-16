@@ -6,6 +6,7 @@ import 'font_theme.dart';
 
 /// theme
 final ThemeData appTheme = ThemeData(
+
     cardColor: AppColors.primaryColor,
     scaffoldBackgroundColor: AppColors.white,
     iconTheme: const IconThemeData(color: AppColors.black, size: 25),
@@ -13,15 +14,12 @@ final ThemeData appTheme = ThemeData(
     ColorScheme.fromSwatch().copyWith(secondary: AppColors.primaryColor),
     inputDecorationTheme: InputDecorationTheme(
         fillColor: AppColors.transparent,
-        contentPadding: const EdgeInsets.fromLTRB(
-          15,
-          8,
-          10,
-          8,
-        ),
+        contentPadding: const EdgeInsets.symmetric(vertical: 12),
+        labelStyle: FontTheme.b2.style(color: AppColors.greyText),
         hintStyle: FontTheme.b1.style(color: AppColors.greyText),
-        suffixIconColor: AppColors.black,
+        suffixStyle: FontTheme.b1.style(color: AppColors.blackText),
 
+        suffixIconColor: AppColors.black,
         border: const UnderlineInputBorder(
             borderSide: BorderSide(color: AppColors.stroke, width: 1)),
         enabledBorder: const UnderlineInputBorder(

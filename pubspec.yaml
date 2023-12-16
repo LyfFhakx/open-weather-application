@@ -18,7 +18,13 @@ dependencies:
   intl: ^0.18.0
 
   # To manage user authentication
+  firebase_core: any
+  cloud_firestore: ^4.8.2
+  firebase_storage: ^11.2.4
   firebase_auth: ^4.15.3
+
+  # look up for internet connection
+  connectivity_plus: ^5.0.2
 
   # To Store Data In Local Storage
   shared_preferences: ^2.2.2
@@ -28,8 +34,6 @@ dependencies:
 
   # Svg Image
   flutter_svg: ^2.0.9
-
-  weather: ^3.1.1
 
   # Dependency Injection
   get_it: ^7.6.4
@@ -48,9 +52,6 @@ dependencies:
 
   # Handle Success/Error State From Data Source
   either_dart: ^1.0.0
-
-  # Storage for sensitive data
-  flutter_secure_storage: ^9.0.0
 
   cupertino_icons: ^1.0.2
 

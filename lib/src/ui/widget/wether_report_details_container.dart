@@ -3,13 +3,13 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:open_weather_application/src/common.dart';
 import 'package:open_weather_application/src/common/theme/font_theme.dart';
-import 'package:open_weather_application/src/utils/wind_util.dart';
 
 import '../../core.dart';
 import '../../data.dart';
+import '../../utils/utils.dart';
 
 class WeatherReportDetailsContainer extends StatelessWidget {
-  final Wind wind;
+  final Wind? wind;
   final int humidity;
 
   const WeatherReportDetailsContainer(
@@ -27,12 +27,12 @@ class WeatherReportDetailsContainer extends StatelessWidget {
             padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 16.h),
             child: Column(
               children: [
-                infoRow('wind.svg', wind.speed.toStringAsFixed(1),
-                    windDegToText(wind.deg)),
+                infoRow('wind.svg', "${wind?.speed.toStringAsFixed(1)}м/с",
+                    "Ветер ${windDegToText(wind?.deg??0)}"),
                 SizedBox(
                   height: 16.h,
                 ),
-                infoRow('drop.svg', "$humidity%", "Высокая"),
+                infoRow('drop.svg', "$humidity%", "Высокая влажность"),
               ],
             ),
           ),
@@ -43,22 +43,32 @@ class WeatherReportDetailsContainer extends StatelessWidget {
 
   Widget infoRow(String svgPath, String data, String description) {
     return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        SvgPicture.asset(Helper.getSvgPath(svgPath)), //svg
-        SizedBox(
-          width: 8.w,
+        Expanded(
+          flex: 2,
+          child: Row(
+            children: [
+              SvgPicture.asset(Helper.getSvgPath(svgPath)),
+              SizedBox(
+                width: 8.w,
+              ),
+              Text(
+                data,
+                style: FontTheme.b2Medium
+                    .style(color: AppColors.white.withOpacity(0.2)),
+              ),
+            ],
+          ),
+        ), //svg
+        Expanded(
+          flex: 3,
+          child: Text(
+            description,
+            textAlign: TextAlign.start,
+            style: FontTheme.b2.style(),
+          ),
         ),
-        Text(
-          data,
-          style:
-              FontTheme.b2Medium.style(color: AppColors.white.withOpacity(0.2)),
-        ),
-        SizedBox(
-          width: Helper.getVerticalSpace(),
-        ),
-        Text(description,
-            style: FontTheme.b2Medium
-                .style(color: AppColors.white.withOpacity(0.2))),
       ],
     );
   }
